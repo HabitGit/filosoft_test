@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+
+  nats:
+    image: 'nats:2.10.5'
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+
+  gateway:
+    container_name: gateway
+    build:
+      context: ./server
+      dockerfile: ./apps/gateway/Dockerfile
+    depends_on:
+      - nats
+    ports:
+      - "8080:8080"
+
+  students:
+    container_name: students
+    build:
+      context: ./server
+      dockerfile: ./apps/students/Dockerfile
+    depends_on:
+      - nats

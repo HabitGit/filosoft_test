@@ -4,18 +4,7 @@ import {StudentsService} from './students.service';
 import {ClientsModule, Transport} from "@nestjs/microservices";
 
 @Module({
-  imports: [
-      ClientsModule.register([
-        {
-          name: 'STUDENTS_SERVICE',
-          transport: Transport.NATS,
-          options: {
-            servers: ['nats://localhost:4222'],
-            queue: 'students_queue'
-          }
-        }
-      ])
-  ],
+  imports: [],
   controllers: [StudentsController],
   providers: [StudentsService],
 })

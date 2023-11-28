@@ -7,6 +7,10 @@ export class GatewayService {
       @Inject('STUDENTS_SERVICE') private studentsService: ClientProxy,
   ) {}
   getTest() {
-    return this.studentsService.send({ cmd: 'get-test' }, 'test')
+    return this.studentsService.send('get-test', 'test')
+  }
+
+  getHello() {
+    return 'hello you 3';
   }
 }

@@ -10,8 +10,8 @@ import {ClientsModule, Transport} from "@nestjs/microservices";
           name: 'STUDENTS_SERVICE',
           transport: Transport.NATS,
           options: {
-            servers: ['nats://localhost:4222'],
-            queue: 'students_queue',
+            servers: ['nats://nats:4222'],
+            // queue: 'students_queue',
           }
         }
       ])
