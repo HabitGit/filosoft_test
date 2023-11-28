@@ -33,6 +33,9 @@ services:
     depends_on:
       - nats
       - postgres
+    volumes:
+      - ./server:/app
+      - /app/node_modules
     ports:
       - "8080:8080"
 
@@ -46,3 +49,6 @@ services:
     depends_on:
       - nats
       - postgres
+    volumes:
+      - ./server:/app
+      - /app/node_modules

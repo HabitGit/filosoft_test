@@ -8,4 +8,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm", "run", "start", "gateway"]
+CMD ["npm", "run", "start:dev", "gateway"]
