@@ -27,6 +27,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/gateway/tsconfig.app.json"
       }
+    },
+    "students": {
+      "type": "application",
+      "root": "apps/students",
+      "entryFile": "main",
+      "sourceRoot": "apps/students/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/students/tsconfig.app.json"
+      }
     }
   }
 }
