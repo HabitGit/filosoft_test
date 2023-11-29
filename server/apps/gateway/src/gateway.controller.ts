@@ -1,4 +1,4 @@
-import {Controller, Get, Header, Param, Query} from '@nestjs/common';
+import {Controller, Get, Param, Query} from '@nestjs/common';
 import { GatewayService } from './gateway.service';
 import {IQueryParams} from "./interfaces/queryParams.interface";
 
