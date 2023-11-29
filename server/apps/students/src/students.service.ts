@@ -22,7 +22,7 @@ export class StudentsService {
     }
 
     async setInfo(info: GradeInfoDto): Promise<void> {
-        const nc: NatsConnection = await connect({servers: 'nats://192.162.246.63:4222'});
+        const nc: NatsConnection = await connect({servers: process.env.NATS_HOST});
         const sc: Codec<string> = StringCodec();
 
         const encodeReq: Uint8Array = sc.encode(JSON.stringify(

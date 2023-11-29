@@ -15,9 +15,7 @@ import {ClientsModule, Transport} from "@nestjs/microservices";
                 name: 'STUDENTS_MODULE',
                 transport: Transport.NATS,
                 options: {
-                    servers: [
-                        'nats://192.162.246.63:4222',
-                    ],
+                    servers: [process.env.NATS_HOST],
                     timeout: 10000,
                 }
             }
