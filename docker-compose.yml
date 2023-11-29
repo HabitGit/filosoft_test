@@ -17,12 +17,6 @@ services:
     ports:
       - "5433:5432"
 
-  nats:
-    image: 'nats:2.10.5'
-    ports:
-      - "4222:4222"
-      - "8222:8222"
-
   gateway:
     container_name: gateway
     build:
@@ -31,11 +25,7 @@ services:
     env_file:
       - .env
     depends_on:
-      - nats
       - postgres
-    volumes:
-      - ./server:/app
-      - /app/node_modules
     ports:
       - "8080:8080"
 
@@ -47,8 +37,4 @@ services:
     env_file:
       - .env
     depends_on:
-      - nats
       - postgres
-    volumes:
-      - ./server:/app
-      - /app/node_modules
