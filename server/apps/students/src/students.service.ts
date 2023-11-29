@@ -7,10 +7,6 @@ import {Students} from "./students.model";
 import {StudentDto} from "./dtos/student.dto";
 import {Grades} from "./grades.model";
 
-interface IReq {
-    personalCode: string;
-}
-
 @Injectable()
 export class StudentsService {
     constructor(

@@ -1,6 +1,6 @@
 import {Controller} from '@nestjs/common';
 import { StudentsService } from './students.service';
-import {Ctx, MessagePattern, NatsContext, Payload} from "@nestjs/microservices";
+import {MessagePattern, Payload} from "@nestjs/microservices";
 import {GradeInfoDto} from "./dtos/gradeInfo.dto";
 
 @Controller('students')
@@ -12,9 +12,9 @@ export class StudentsController {
     return this.studentsService.getTest();
   }
 
-  // @MessagePattern('students.v1.graded')
-  // getGradeInfo(@Payload() info: GradeInfoDto) {
-  //   console.log('Info: ', info)
-  //   return this.studentsService.setInfo(info);
-  // }
+  @MessagePattern('students.v1.graded')
+  getGradeInfo(@Payload() info: GradeInfoDto) {
+    console.log('Info: ', info)
+    return this.studentsService.setInfo(info);
+  }
 }
