@@ -1,5 +1,6 @@
-import {Controller, Get} from '@nestjs/common';
+import {Controller, Get, Header, Param, Query} from '@nestjs/common';
 import { GatewayService } from './gateway.service';
+import {IQueryParams} from "./interfaces/queryParams.interface";
 
 @Controller()
 export class GatewayController {
@@ -10,8 +11,13 @@ export class GatewayController {
     return this.gatewayService.getHello();
   }
 
-  @Get('/test')
-  getTest() {
-    return this.gatewayService.getTest();
+  @Get('/log')
+  getGradesLog(@Query() params: IQueryParams) {
+    return this.gatewayService.getGradeLog(params);
+  }
+
+  @Get('/statistic/:personalCode')
+  getPersonalStatistic(@Param() personalCode: number) {
+    return this.gatewayService.getPersonalStatistic(personalCode);
   }
 }
