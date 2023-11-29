@@ -1,6 +1,5 @@
 import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {Students} from "./students.model";
-import {Subjects} from "./subjects.model";
 
 @Table({ tableName: 'grades' })
 export class Grades extends Model<Grades> {
@@ -12,19 +11,15 @@ export class Grades extends Model<Grades> {
     })
     id: number;
 
-    @ForeignKey(() => Subjects)
-    @Column({ type: DataType.INTEGER })
-    subjectId: number;
-
-    @BelongsTo(() => Subjects)
-    subject: Subjects;
+    @Column({ type: DataType.STRING })
+    subject: string;
 
     @Column({ type: DataType.INTEGER })
     grade: number;
 
     @ForeignKey(() => Students)
-    @Column({ type: DataType.INTEGER })
-    studentId: number;
+    @Column({ type: DataType.STRING })
+    personalCode: string;
 
     @BelongsTo(() => Students)
     student: Students;

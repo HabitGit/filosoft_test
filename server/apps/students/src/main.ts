@@ -10,9 +10,7 @@ async function bootstrap() {
         options: {
             servers: [
                 'nats://192.162.246.63:4222',
-                // 'nats://nats:4222',
             ],
-            // encoding: 'utf-8'
         }
     });
 
