@@ -13,8 +13,8 @@ export class Grades extends Model<Grades> {
     id: number;
 
     @ForeignKey(() => Subjects)
-    @Column({ type: DataType.STRING })
-    subjectId: string;
+    @Column({ type: DataType.INTEGER })
+    subjectId: number;
 
     @BelongsTo(() => Subjects)
     subject: Subjects;
@@ -23,7 +23,7 @@ export class Grades extends Model<Grades> {
     grade: number;
 
     @ForeignKey(() => Students)
-    @Column
+    @Column({ type: DataType.INTEGER })
     studentId: number;
 
     @BelongsTo(() => Students)
